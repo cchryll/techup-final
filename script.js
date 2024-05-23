@@ -210,13 +210,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    function saveFavorite(eventId) {
-        const event = events.find(event => event.id === eventId);
-        let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-        favorites.push(event);
-        localStorage.setItem('favorites', JSON.stringify(favorites));
-        alert('Event saved to favorites!');
-    }
 
     searchBar.addEventListener('input', function() {
         const searchTerm = searchBar.value.toLowerCase();
@@ -228,165 +221,206 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 /* generate */
-const wheel = document.getElementById("wheel");
-const spinBtn = document.getElementById("spin-btn");
-const finalValue = document.getElementById("final-value");
+const decisionInput = document.getElementById('decision');
+const decision = document.getElementById('decision-needed');
 
-const generateColors = (count) => {
-    const colors = [];
-    for (let i = 0; i < count; i++) {
-        colors.push(`#${Math.floor(Math.random()*16777215).toString(16)}`);
+decisionInput.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+      const decisionData = decisionInput.value;
+      decision.innerHTML = decisionData;
+      decisionInput.disabled = false;
     }
-    return colors;
-};
+  });
 
-let pieColors = generateColors(6);
+  const wheel = document.getElementById("wheel");
+  spinBtn = document.getElementById("spin-button");
+  finalValue = document.getElementById("final-value");
+  inputValues = document.getElementById("item-list");
 
-const rotationValues = [
-    { minDegree: 0, maxDegree: 30, value: 2 },
-    { minDegree: 31, maxDegree: 90, value: 1 },
-    { minDegree: 91, maxDegree: 150, value: 6 },
-    { minDegree: 151, maxDegree: 210, value: 5 },
-    { minDegree: 211, maxDegree: 270, value: 4 },
-    { minDegree: 271, maxDegree: 330, value: 3 },
-    { minDegree: 331, maxDegree: 360, value: 2 },
-];
+let myChart; // Declare myChart variable
+let rotationValues; // Declare rotationValues as global variable
 
-let myChart = new Chart(wheel, {
-    plugins: [ChartDataLabels],
-    type: "pie",
-    data: {
-        labels: ["Section 1", "Section 2", "Section 3", "Section 4", "Section 5", "Section 6"],
-        datasets: [{
-            backgroundColor: pieColors,
-            data: [1, 1, 1, 1, 1, 1],
-        }],
-    },
-    options: {
-        responsive: true,
-        animation: { duration: 0 },
-        plugins: {
-            tooltip: false,
-            legend: { display: false },
-            datalabels: {
-                color: "#ffffff",
-                formatter: (_, context) => context.chart.data.labels[context.dataIndex],
-                font: { size: 24 },
-            },
+// Function to create or update chart
+const initializeChart = () => {
+  // Parse input values and set data array
+  const inputData = inputValues.value.split('\n').map(value => value.trim());
+
+  rotationValues = inputData.map((value, index) => {
+    let minDegree, maxDegree;
+  
+    // Setting range of angle degrees for each index on the pie chart
+    if (index >= 1) {
+      minDegree = (360 / inputData.length) * index + 1;
+      maxDegree = (360 / inputData.length) * (index + 1);
+    } else {
+      minDegree = (360 / inputData.length) * index;
+      maxDegree = (360 / inputData.length) * (index + 1);
+    }
+  
+    return { minDegree, maxDegree, value };
+  });
+  
+  console.log(rotationValues);
+
+  const pieColors = [
+    "#1B9989", "#E9EDEE", "#F9C74F", "#4595C4", "#D98FB3",
+  ];
+
+  // Create a new chart if it doesn't exist
+  if (!myChart) {
+    myChart = new Chart(wheel, {
+        // Display text on chart
+        plugins: [ChartDataLabels],
+        type: "pie",
+        data: {
+            labels: inputData,
+            datasets: [{
+                backgroundColor: pieColors,
+                data: Array(inputData.length).fill(1), // Use 1 as a placeholder for text values
+              }],
         },
-    },
-});
-
-const valueGenerator = (angleValue) => {
-    for (let i of rotationValues) {
-        if (angleValue >= i.minDegree && angleValue <= i.maxDegree) {
-            finalValue.innerHTML = `<p>Winner: Section ${i.value}</p>`;
-            spinBtn.disabled = false;
-            break;
-        }
-    }
+        options: {
+            responsive: true,
+            animation: { duration: 0 },
+            plugins: {
+                tooltip: false,
+                legend: {
+                    display: false,
+                  },
+                datalabels: {
+                    color: "#000000",
+                    formatter: (_, context) => context.chart.data.labels[context.dataIndex],
+                    font: { size: 16 },
+                  },
+              },
+          },
+      });
+  } else {
+    // Update the existing chart
+    myChart.data.labels = inputData;
+    myChart.data.datasets[0].backgroundColor = pieColors;
+    myChart.data.datasets[0].data = Array(inputData.length).fill(1);
+    myChart.update();
+  }
 };
 
+initializeChart();
+
+// Event listener for automatic updating when input values change
+inputValues.addEventListener("input", initializeChart);
+
+
+
+// Display final value based on randomDegree
+const generateValue = (angleValue) => {
+  const adjustedValue = 360 - angleValue;
+
+  for (let i of rotationValues) {
+      if (adjustedValue >= i.minDegree && adjustedValue <= i.maxDegree) {
+          finalValue.innerHTML = `${i.value}`;
+          spinBtn.disabled = false;
+          break;
+      }
+  }
+}; 
+
+// Spinner Count
 let count = 0;
 let resultValue = 101;
 
+// Start spinning
 spinBtn.addEventListener("click", () => {
-    spinBtn.disabled = true;
-    finalValue.innerHTML = `<p>Spinning the wheel. Good luck!</p>`;
-    let randomDegree = Math.floor(Math.random() * (355 - 0 + 1) + 0);
-    let rotationInterval = window.setInterval(() => {
-        myChart.options.rotation = myChart.options.rotation + resultValue;
-        myChart.update();
-        if (myChart.options.rotation >= 360) {
-            count += 1;
-            resultValue -= 5;
-            myChart.options.rotation = 0;
-        } else if (count > 15 && myChart.options.rotation == randomDegree) {
-            valueGenerator(randomDegree);
-            clearInterval(rotationInterval);
-            count = 0;
-            resultValue = 101;
-        }
-    }, 10);
+  spinBtn.disabled = true;
+  // Generate random degree to stop at
+  let randomDegree = Math.floor(Math.random() * (355 - 0 + 1) + 0);
+  console.log(randomDegree);
+  // Interval for rotation animation
+  let rotationInterval = window.setInterval(() => {
+      myChart.options.rotation = myChart.options.rotation + resultValue;
+      myChart.update();
+      // If rotation > 360 the count is incremented, resultValue reduced and rotation resets to 0
+      if (myChart.options.rotation >= 360) {
+          count += 1;
+          resultValue -= 5;
+          myChart.options.rotation = 0;
+      // If count exceeds 15 and rotation angle matches random degree, wheel stops
+      } else if (count > 15 && myChart.options.rotation == randomDegree) {
+          generateValue(randomDegree);
+          clearInterval(rotationInterval);
+          count = 0;
+          resultValue = 101;
+      }
+  }, 10); //where setInterval rotation logic is executed every 10milisecs
 });
+
+
+
 
 /* Recommend */
 
 document.addEventListener('DOMContentLoaded', function() {
-    const form = document.querySelector('#recommendationForm');
-    const resultSection = document.querySelector('#recommendation-result');
-    const interestsField = document.querySelector('#interests');
-
-    // Prompt message when the interests field is focused
-    interestsField.addEventListener('focus', function() {
-        if (!interestsField.dataset.promptShown) {
-            alert('Please enter your interests, such as "outdoor person", "art", "music", etc.');
-            interestsField.dataset.promptShown = true;
-        }
-    });
+    const form = document.getElementById('recommendationForm');
+    const resultSection = document.getElementById('recommendation-result');
 
     form.addEventListener('submit', function(event) {
         event.preventDefault(); // Prevent form submission
-        const age = document.querySelector('#age').value;
-        const gender = document.querySelector('#gender').value;
-        const interests = document.querySelector('#interests').value.toLowerCase();
 
-        // Debug: Log the input values
-        console.log('Age:', age);
-        console.log('Gender:', gender);
-        console.log('Interests:', interests);
+        const age = document.getElementById('age').value;
+        const gender = document.getElementById('gender').value;
+        const interests = document.getElementById('interests').value.toLowerCase();
 
-        // Placeholder recommendation logic
-        const recommendations = [
-            {
-                match: ['outdoor', 'active'],
-                suggestion: 'Go for a scenic bike ride along the coast this weekend!'
-            },
-            {
-                match: ['art', 'indoor'],
-                suggestion: 'Visit the downtown art gallery open house.'
-            },
-            {
-                match: ['music', 'outdoor'],
-                suggestion: 'Enjoy a free concert in the park.'
-            },
-            {
-                match: ['nature', 'outdoor'],
-                suggestion: 'Explore nature with a hike at MacRitchie Reservoir.'
-            },
-            {
-                match: ['food', 'indoor'],
-                suggestion: 'Attend a cooking class together.'
-            },
-            {
-                match: ['history', 'indoor'],
-                suggestion: 'Visit the national museum for a free tour.'
-            },
-            {
-                match: ['relax', 'indoor'],
-                suggestion: 'Have a movie marathon at home.'
+        // Recommendations based on interests
+        const recommendations = {
+            'outdoor': 'Go for a scenic bike ride along the coast this weekend!',
+            'art': 'Visit the downtown art gallery open house.',
+            'music': 'Enjoy a free concert in the park.',
+            'nature': 'Explore nature with a hike at MacRitchie Reservoir.',
+            'food': 'Attend a cooking class together.',
+            'history': 'Visit the national museum for a free tour.',
+            'relax': 'Have a movie marathon at home.'
+        };
+
+        let recommendation = 'Try visiting a new part of town or exploring a local market.';
+        for (let key in recommendations) {
+            if (interests.includes(key)) {
+                recommendation = recommendations[key];
+                break;
             }
-        ];
-
-        // Simplified matching logic
-        let recommendation = recommendations.find(rec => {
-            return rec.match.some(tag => interests.includes(tag));
-        });
-
-        if (!recommendation) {
-            recommendation = { suggestion: 'Try visiting a new part of town or exploring a local market.' };
         }
-
-        // Debug: Log the recommendation
-        console.log('Recommendation:', recommendation.suggestion);
 
         // Display the recommendation on the page
         resultSection.innerHTML = `
             <h2>Recommendation</h2>
-            <p>Based on your input, we recommend: ${recommendation.suggestion}</p>
+            <p>Based on your input, we recommend: ${recommendation}</p>
         `;
 
         // Scroll to the recommendation result
         resultSection.scrollIntoView({ behavior: 'smooth' });
     });
 });
+
+
+
+
+
+
+/* back to top button */
+// Get the button:
+let mybutton = document.getElementById("myBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
