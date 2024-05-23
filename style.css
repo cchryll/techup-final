@@ -137,20 +137,6 @@ main {
     font-size: 1rem;
 }
 
-/* CSS for the tags */
-.tags {
-    margin-top: 10px;
-}
-
-.tag {
-    display: inline-block;
-    background-color: #007bff; /* You can change the color */
-    color: #fff;
-    padding: 5px 10px;
-    border-radius: 20px; /* Adjust this value to control the roundness */
-    margin-right: 5px;
-}
-
 
 /* GENERATE */
 
