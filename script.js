@@ -228,76 +228,162 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 /* generate */
-document.addEventListener('DOMContentLoaded', function() {
-    const dateIdeas = [
-        "Go for a walk in the park",
-        "Visit a free museum",
-        "Have a picnic at the beach",
-        "Attend a free community concert",
-        "Explore a local art gallery",
-        "Go hiking on a nearby trail",
-        "Stargaze in your backyard",
-        "Visit a public library and read together",
-        "Attend a free fitness class",
-        "Have a game night at home"
-    ];
+const wheel = document.getElementById("wheel");
+const spinBtn = document.getElementById("spin-btn");
+const finalValue = document.getElementById("final-value");
 
-    const wheel= document.getElementById('wheel');
-    const spinBtn = document.getElementById('spin-btn');
-    const selectedIdeaDisplay = document.getElementById('selected-idea');
-
-    function createWheel() {
-        const numSegments = dateIdeas.length;
-        const segmentAngle = 360 / numSegments;
-        dateIdeas.forEach((idea, index) => {
-            const segment = document.createElement('div');
-            segment.classList.add('segment');
-            segment.style.transform = `rotate(${segmentAngle * index}deg) skewY(${90 - segmentAngle}deg)`;
-            segment.innerHTML = `<div class="segment-content" style="transform: skewY(${segmentAngle - 90}deg) rotate(${segmentAngle / 2}deg);">${idea}</div>`;
-            wheel.appendChild(segment);
-        });
+const generateColors = (count) => {
+    const colors = [];
+    for (let i = 0; i < count; i++) {
+        colors.push(`#${Math.floor(Math.random()*16777215).toString(16)}`);
     }
+    return colors;
+};
 
-    function spinWheel() {
-        const randomDegree = Math.floor(Math.random() * 360) + 360 * 5; // Extra spins for effect
-        wheel.style.transition = 'transform 5s cubic-bezier(0.25, 0.1, 0.25, 1)';
-        wheel.style.transform = `rotate(${randomDegree}deg)`;
-        setTimeout(() => {
-            const selectedIdeaIndex = Math.floor((randomDegree % 360) / (360 / dateIdeas.length));
-            selectedIdeaDisplay.textContent = dateIdeas[dateIdeas.length - selectedIdeaIndex - 1];
-        }, 5000); // Match the transition duration
-    }
+let pieColors = generateColors(6);
 
-    spinBtn.addEventListener('click', spinWheel);
+const rotationValues = [
+    { minDegree: 0, maxDegree: 30, value: 2 },
+    { minDegree: 31, maxDegree: 90, value: 1 },
+    { minDegree: 91, maxDegree: 150, value: 6 },
+    { minDegree: 151, maxDegree: 210, value: 5 },
+    { minDegree: 211, maxDegree: 270, value: 4 },
+    { minDegree: 271, maxDegree: 330, value: 3 },
+    { minDegree: 331, maxDegree: 360, value: 2 },
+];
 
-    createWheel();
+let myChart = new Chart(wheel, {
+    plugins: [ChartDataLabels],
+    type: "pie",
+    data: {
+        labels: ["Section 1", "Section 2", "Section 3", "Section 4", "Section 5", "Section 6"],
+        datasets: [{
+            backgroundColor: pieColors,
+            data: [1, 1, 1, 1, 1, 1],
+        }],
+    },
+    options: {
+        responsive: true,
+        animation: { duration: 0 },
+        plugins: {
+            tooltip: false,
+            legend: { display: false },
+            datalabels: {
+                color: "#ffffff",
+                formatter: (_, context) => context.chart.data.labels[context.dataIndex],
+                font: { size: 24 },
+            },
+        },
+    },
 });
 
+const valueGenerator = (angleValue) => {
+    for (let i of rotationValues) {
+        if (angleValue >= i.minDegree && angleValue <= i.maxDegree) {
+            finalValue.innerHTML = `<p>Winner: Section ${i.value}</p>`;
+            spinBtn.disabled = false;
+            break;
+        }
+    }
+};
 
-/* Recommend Page */
+let count = 0;
+let resultValue = 101;
+
+spinBtn.addEventListener("click", () => {
+    spinBtn.disabled = true;
+    finalValue.innerHTML = `<p>Spinning the wheel. Good luck!</p>`;
+    let randomDegree = Math.floor(Math.random() * (355 - 0 + 1) + 0);
+    let rotationInterval = window.setInterval(() => {
+        myChart.options.rotation = myChart.options.rotation + resultValue;
+        myChart.update();
+        if (myChart.options.rotation >= 360) {
+            count += 1;
+            resultValue -= 5;
+            myChart.options.rotation = 0;
+        } else if (count > 15 && myChart.options.rotation == randomDegree) {
+            valueGenerator(randomDegree);
+            clearInterval(rotationInterval);
+            count = 0;
+            resultValue = 101;
+        }
+    }, 10);
+});
+
+/* Recommend */
+
 document.addEventListener('DOMContentLoaded', function() {
-    const form = document.querySelector('#recommendation-form');
+    const form = document.querySelector('#recommendationForm');
     const resultSection = document.querySelector('#recommendation-result');
+    const interestsField = document.querySelector('#interests');
+
+    // Prompt message when the interests field is focused
+    interestsField.addEventListener('focus', function() {
+        if (!interestsField.dataset.promptShown) {
+            alert('Please enter your interests, such as "outdoor person", "art", "music", etc.');
+            interestsField.dataset.promptShown = true;
+        }
+    });
 
     form.addEventListener('submit', function(event) {
         event.preventDefault(); // Prevent form submission
         const age = document.querySelector('#age').value;
         const gender = document.querySelector('#gender').value;
-        const interests = document.querySelector('#interests').value;
-        const personality = document.querySelector('#personality').value;
+        const interests = document.querySelector('#interests').value.toLowerCase();
+
+        // Debug: Log the input values
+        console.log('Age:', age);
+        console.log('Gender:', gender);
+        console.log('Interests:', interests);
 
         // Placeholder recommendation logic
-        const recommendation = `Based on your input:
-            Age: ${age}
-            Gender: ${gender}
-            Interests: ${interests}
-            Personality: ${personality}
-            We recommend trying out a scenic bike ride along the coast this weekend!`;
+        const recommendations = [
+            {
+                match: ['outdoor', 'active'],
+                suggestion: 'Go for a scenic bike ride along the coast this weekend!'
+            },
+            {
+                match: ['art', 'indoor'],
+                suggestion: 'Visit the downtown art gallery open house.'
+            },
+            {
+                match: ['music', 'outdoor'],
+                suggestion: 'Enjoy a free concert in the park.'
+            },
+            {
+                match: ['nature', 'outdoor'],
+                suggestion: 'Explore nature with a hike at MacRitchie Reservoir.'
+            },
+            {
+                match: ['food', 'indoor'],
+                suggestion: 'Attend a cooking class together.'
+            },
+            {
+                match: ['history', 'indoor'],
+                suggestion: 'Visit the national museum for a free tour.'
+            },
+            {
+                match: ['relax', 'indoor'],
+                suggestion: 'Have a movie marathon at home.'
+            }
+        ];
+
+        // Simplified matching logic
+        let recommendation = recommendations.find(rec => {
+            return rec.match.some(tag => interests.includes(tag));
+        });
+
+        if (!recommendation) {
+            recommendation = { suggestion: 'Try visiting a new part of town or exploring a local market.' };
+        }
+
+        // Debug: Log the recommendation
+        console.log('Recommendation:', recommendation.suggestion);
 
         // Display the recommendation on the page
         resultSection.innerHTML = `
             <h2>Recommendation</h2>
-            <p>${recommendation}</p>
+            <p>Based on your input, we recommend: ${recommendation.suggestion}</p>
         `;
 
         // Scroll to the recommendation result
