@@ -8,30 +8,42 @@
    <script src="script.js"></script>
 </head>
 <body>
-    <h1 class="title">Weekend Do What: Free Date Ideas</h1>
-   
-    <div class="intro">
-        <p>Use the directory below for a halal gourmet journey around Singapore.</p>
-    </div>
 
-    <header>
-        <h1>Welcome to Free Date Ideas</h1>
+    <header class="gradient-header">
+        <div class="header-content">
+        <h1><a href="index.html">Weekend Do What: Free Date Ideas</a></h1>
+        <p>Don't know what to do this weekend? Find something up your alley from this repository of free events and activities in Singapore.</p>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="events.html">Events</a></li>
-                <li><a href="favorites.html">Favorites</a></li>
+                <li><a href="recommend.html">Recommend</a></li>
+                <li><a href="generate.html">Generate For Me</a></li>
+
             </ul>
-        </nav>
+        </div>
     </header>
     <main>
-        <section>
+        <section class="hero-section">
             <h2>Discover Free Activities for Your Next Date!</h2>
             <p>Explore a variety of free events and activities perfect for couples.</p>
         </section>
+
+
+        <section id="date-ideas">
+            <h2>More Date Ideas</h2>
+            <div id="search-bar-container">
+                <input type="text" id="search-bar" placeholder="Search for events...">
+                <button id="search-button">Search</button>
+            </div>
+            <ul id="event-list">
+                <!-- Event cards with tags will be inserted here by JavaScript -->
+            </ul>
+        </section>
+
     </main>
     <footer>
-        <p>&copy; 2024 Free Date Ideas</p>
+        <p>Weekend Go Where © 2024</p>
     </footer>
     <script src="script.js"></script>
 </body>
