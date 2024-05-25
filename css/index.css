@@ -1,0 +1,258 @@
+/* Base Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    text-decoration: none;
+}
+
+/* Navbar */
+
+.navbar-toggler {
+    margin-left: auto;
+    text-decoration: none;
+}
+
+.bg-dark .list-unstyled {
+    margin: 0;
+    padding: 0;
+    gap: 15px;
+    text-decoration: none;
+}
+    
+.bg-dark .list-unstyled li {
+    list-style: none;
+    text-decoration: none;
+}
+
+.indexlogo {
+    height: 400px;
+    width: 400px;
+}
+
+.navbarlogo {
+    height: 60px;
+    width: 60px;
+}
+
+/* Header Styles */
+.gradient-header {
+    background-image: linear-gradient(to right, #D9AFD9 0%, pink, #97D9E1 100%);
+    color: #fff;
+    text-align: center;
+}
+
+.header-content {
+    margin: 0 auto;
+    text-align: center;
+    padding: 30px;
+}
+
+.header-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    padding: 30px;
+}
+
+.header-content h1 a {
+    text-decoration: none;
+    padding: 50px;
+    color: inherit;
+}
+
+.header-content p {
+    font-size: 1.2rem;
+    padding: 0px;
+    margin-bottom: 20px;
+}
+
+.header-content nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.header-content nav ul li {
+    display: inline-block;
+    margin: 0 15px;
+}
+
+.header-content nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.header-content nav ul li a:hover {
+    color: #696969;
+}
+
+/* Main Content Styles */
+main {
+    flex: 1;
+}
+
+.hero-section {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.hero-section h2 {
+    font-size: 1.7rem;
+}
+
+.hero-section p {
+    font-size: 1rem;
+}
+
+/* Event List Styles */
+#event-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.event-card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    width: calc(33.333% - 20px);
+    box-sizing: border-box;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    height: 340px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.event-card h3 {
+    margin-top: 0;
+    font-size: 1.5rem;
+}
+
+.event-card p {
+    margin-bottom: 10px;
+    font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+    .event-card {
+        width: calc(50% - 20px);
+    }
+}
+
+@media (max-width: 480px) {
+    .event-card {
+        width: 100%;
+    }
+}
+
+/* Date Ideas Section Styles */
+#date-ideas {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    font-size: 2px;
+}
+
+.tag {
+    display: inline-block;
+    padding: 3px 6px; /* Increase padding for larger tags */
+    margin-right: 8px; /* Increase margin for more space between tags */
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px; /* Adjust font size for larger text */
+}
+
+.card-tag {
+    margin-top: auto; /* Push tags to the bottom */
+}
+
+
+/* SEARCH */
+
+#search-bar-container {
+    margin-bottom: 20px;
+    text-align: center; /* Center the search bar */
+}
+
+#search-bar {
+    padding: 10px; /* Reduce padding for a thinner appearance */
+    width: 70%; /* Reduce width */
+    max-width: 400px; /* Reduce max-width */
+    margin: 0 auto;
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    font-size: 0.9rem; /* Reduce font size */
+}
+
+#search-bar:focus {
+    outline: none; /* Remove focus outline for a cleaner appearance */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Increase box shadow on focus */
+}
+
+#search-button {
+    padding: 8px 15px; /* Reduce padding for a smaller button */
+    font-size: 0.9rem; /* Reduce font size */
+    border-radius: 20px; /* Adjust border radius to match the search bar */
+    border: none; /* Remove border */
+    background-color: #007bff; /* Set background color to a shade of blue */
+    color: #fff; /* Set text color to white */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    transition: background-color 0.3s ease; /* Add transition for hover effect */
+}
+
+#search-button:hover {
+    background-color: #0056b3; /* Darken background color on hover */
+}
+
+
+
+/* FOOTER */
+
+footer {
+    background-color:#ccc; /* Dark background color for better contrast */
+    color:#ccc;
+    text-align: center;
+    font-size: 15px;
+    position: relative;
+    width: 100%;
+    padding: 10px 0; /* Reduced padding to decrease spacing */
+    margin: 0; /* Ensure no margin is added by default */
+}
+
+footer p {
+    margin: 0; /* Ensure no additional margin is added to paragraphs */
+    padding: 0; /* Ensure no additional padding is added to paragraphs */
+}
+
+#disclaimer {
+    font-size: 10px;
+    color: #fff;
+    padding: 10px;
+}
+
+
+/* TOP BUTTON */
+
+#myBtn {
+    border: none; /* Remove borders */
+    background-color: rgb(104, 102, 102); /* Set a background color */
+    color: white; /* Text color */
+    cursor: pointer; /* Add a mouse pointer on hover */
+    font-size: 18px; /* Increase font size */
+    height: 40px;
+}
+  
+#myBtn:hover {
+    background-color: #555; /* Add a dark-grey background on hover */
+}

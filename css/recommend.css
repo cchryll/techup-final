@@ -1,0 +1,203 @@
+/* Base Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    text-decoration: none;
+}
+
+/* Navbar */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+#navbarToggleExternalContent {
+    width: 100%;
+}
+
+.navbar-toggler {
+    margin-left: auto;
+    text-decoration: none;
+}
+
+.bg-dark .list-unstyled {
+    margin: 0;
+    padding: 0;
+    gap: 15px;
+}
+
+.navbarlogo {
+    height: 60px;
+    width: 60px;
+}
+
+/* Header Styles */
+.gradient-header {
+    background-image: linear-gradient(to right, #D9AFD9 0%, pink, #97D9E1 100%);
+    color: #fff;
+    text-align: center;
+}
+
+.header-content {
+    margin: 0 auto;
+    text-align: center;
+    padding: 30px;
+}
+
+.header-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    padding: 30px;
+}
+
+.header-content h1 a {
+    text-decoration: none;
+    padding: 50px;
+    color: inherit;
+}
+
+.header-content p {
+    font-size: 1.2rem;
+    padding: 0px;
+    margin-bottom: 20px;
+}
+
+.header-content nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.header-content nav ul li {
+    display: inline-block;
+    margin: 0 15px;
+}
+
+.header-content nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: color 0.3s ease; /* Smooth transition for color change */
+}
+
+.header-content nav ul li a:hover {
+    color: #696969; /* Change color on hover */
+}
+
+/* Main Content Styles */
+main {
+    flex: 1;
+}
+
+.hero-section {
+    text-align: center;
+}
+
+.hero-section h2 {
+    font-size: 1.7rem;
+}
+
+.hero-section p {
+    font-size: 1rem;
+}
+
+/* Style for the recommendation form */
+#recommendation-form {
+    max-width: 600px;
+    margin: 0 auto;
+    margin-top: 40px;
+    padding: 20px;
+    padding-top:20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Style for the form fields */
+#recommendation-form .form-group {
+    margin-bottom: 15px;
+}
+
+#recommendation-form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+#recommendation-form input,
+#recommendation-form select,
+#recommendation-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+}
+
+/* Style for the submit button */
+#recommendation-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#recommendation-form button:hover {
+    background-color: #0056b3;
+}
+
+/* Style for recommendation result */
+#recommendation-result {
+    margin-top: 20px; /* Add space above the result */
+    padding: 20px;
+    border: 1px solid #ffffff;
+    border-radius: 4px;
+    background-color: #ffffff;
+    color: #212529;
+    text-align: center;
+}
+
+/* Footer Styles */
+footer {
+    background-color:#ccc; /* Dark background color for better contrast */
+    color:#ccc;
+    text-align: center;
+    font-size: 15px;
+    position: relative;
+    width: 100%;
+    padding: 10px 0; /* Reduced padding to decrease spacing */
+    margin: 0; /* Ensure no margin is added by default */
+}
+
+footer p {
+    margin: 0; /* Ensure no additional margin is added to paragraphs */
+    padding: 0; /* Ensure no additional padding is added to paragraphs */
+}
+
+#disclaimer {
+    font-size: 10px;
+    color: #fff;
+    padding: 10px;
+
+}
+
+/* Tag Styles */
+.tag {
+    display: inline-block;
+    padding: 5px 10px;
+    margin-right: 5px;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 10px;
+    font-size: 0.8rem;
+}
