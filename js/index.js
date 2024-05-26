@@ -4,74 +4,74 @@ document.addEventListener('DOMContentLoaded', function() {
         {
             id: 1,
             name: "Free Concert in the Park",
-            date: "2024-05-20",
+            date: "Every alternate Saturdays",
             time: "18:00",
-            location: "Central Park",
-            description: "Enjoy a free concert by local bands in Central Park.",
-            tags: ["Outdoor", " Free"],
+            location: "Botanic Gardens",
+            description: "Enjoy a free concert by local bands at Botanics Gardens.",
+            tags: ["Outdoor", "Music"],
         },
         {
             id: 2,
-            name: "Art Gallery Open House",
-            date: "2024-05-22",
-            time: "10:00",
-            location: "Downtown Art Gallery",
-            description: "Visit the art gallery's open house and enjoy free admission.",
-            tags: ["Free"]
+            name: "Visit the Newest Museum Exhibtion",
+            date: "-",
+            time: "Afternoon",
+            location: "National Gallery",
+            description: "Visit National Gallery and enjoy free admission.",
+            tags: ["Indoor", "Art", "History"],
         },
         {
             id: 3,
-            name: "Beach Picnic",
-            date: "2024-05-23",
-            time: "12:00",
+            name: "Have a Beach Picnic",
+            date: "-",
+            time: "Late afternoon",
             location: "Sentosa Beach",
             description: "Pack a picnic and spend the day at the beach.",
-            tags: ["Outdoor", " Free"]
+            tags: ["Outdoor", "Food"],
         },
         {
             id: 4,
             name: "Movie Marathon at Home",
-            date: "2024-05-24",
+            date: "-",
             time: "All day",
             location: "Your Living Room",
             description: "Stay in and watch your favorite movies all day.",
-            tags: ["Indoor", " Free", " Movie"]
+            tags: ["Indoor", "Movie"],
         },
         {
             id: 5,
             name: "Hiking Adventure",
-            date: "2024-05-25",
+            date: "-",
             time: "08:00",
             location: "MacRitchie Reservoir",
             description: "Explore nature with a hike at MacRitchie Reservoir.",
-            tags: ["Outdoor", " Free", " Hiking"]
+            tags: ["Outdoor", "Hiking"],
         },
         {
             id: 6,
             name: "Volunteer Together at a Local Charity",
-            date: "2024-05-26",
+            date: "Every Sunday",
             time: "09:00",
             location: "Various Locations",
             description: "Spend the day giving back to the community by volunteering together at a local charity.",
-            tags: ["Indoor", " Free", " Volunteering"]
+            tags: ["Indoor", "Volunteering"],
         },
         {
             id: 7,
             name: "Explore a Botanical Garden",
-            date: "2024-05-27",
+            date: "-",
             time: "10:00",
             location: "Singapore Botanic Gardens",
             description: "Take a leisurely stroll through the beautiful Singapore Botanic Gardens.",
-            tags: ["Outdoor", " Free", " Nature"]
+            tags: ["Outdoor", " Nature"],
         },
         {
             id: 8,
             name: "Attend a Free Outdoor Yoga Class",
-            date: "2024-05-28",
-            time: "08:00",
-            location: "Public Park",
-            description: "Start your day with a rejuvenating outdoor yoga class in the park.",
-            tags: ["Outdoor", " Free", " Yoga"]
+            date: "Every Friday",
+            time: "19:00",
+            location: "Funan Rooftop",
+            description: "End your work week with a rejuvenating outdoor yoga class in the evening.",
+            tags: ["Outdoor", " Yoga"],
         },
         {
             id: 9,
@@ -80,16 +80,16 @@ document.addEventListener('DOMContentLoaded', function() {
             time: "09:00",
             location: "Various Locations",
             description: "Explore fresh produce and artisanal goods at a nearby farmers' market.",
-            tags: ["Outdoor", " Free", " Market"]
+            tags: ["Outdoor", " Market"],
         },
         {
             id: 10,
             name: "Go on a Scenic Bike Ride",
-            date: "2024-05-30",
+            date: "-",
             time: "Morning",
             location: "Cycling Trail",
             description: "Enjoy a leisurely bike ride together along a scenic cycling trail.",
-            tags: ["Outdoor", " Free", " Cycling"]
+            tags: ["Outdoor", " Cycling"],
         },
         {
             id: 11,
@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function() {
             time: "11:00",
             location: "Historic District",
             description: "Learn about the history of your city with a free guided tour of a historic district.",
-            tags: ["Outdoor", " Free", " Tour"]
+            tags: ["Outdoor", " Tour"],
         },
         {
             id: 12,
@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', function() {
             time: "Afternoon",
             location: "Local Community",
             description: "Discover local flora and fauna at a nearby community garden.",
-            tags: ["Outdoor", " Free", " Gardening"]
+            tags: ["Outdoor", " Gardening"],
         },
 
         {
@@ -115,36 +115,36 @@ document.addEventListener('DOMContentLoaded', function() {
             name: "Attend a Free Outdoor Movie Screening",
             date: "2024-06-03",
             time: "20:00",
-            location: "Public Park",
+            location: "SCAPE",
             description: "Grab a blanket and watch a classic movie under the stars at a free outdoor screening.",
-            tags: ["Outdoor", " Free", " Movie"]
+            tags: ["Outdoor", "Movie"],
         },
         {
             id: 14,
-            name: "Explore a Nature Reserve",
-            date: "2024-06-04",
-            time: "Morning",
-            location: "Nature Reserve",
-            description: "Immerse yourselves in the beauty of nature by exploring a nearby nature reserve.",
-            tags: ["Outdoor", " Free", " Nature"]
+            name: "Hike up Bukit Timah Hill",
+            date: "-",
+            time: "08:00",
+            location: "Bukit Timah Hill",
+            description: "Explore a rainforest rich with biodiversity on Bukit Timah Hill, Singapore's highest natural point.",
+            tags: ["Outdoor", " Nature", "Hiking"],
         },
         {
             id: 15,
-            name: "Have a Picnic in the Park",
-            date: "2024-06-05",
-            time: "12:00",
-            location: "Public Park",
-            description: "Pack some sandwiches and enjoy a relaxing picnic in the park together.",
-            tags: ["Outdoor", " Free", " Picnic"]
+            name: "Have a Picnic at Marina Barrage",
+            date: "-",
+            time: "18:00",
+            location: "Marina Barrage",
+            description: "Pack some sandwiches and enjoy a relaxing picnic at Marina Barrage together.",
+            tags: ["Outdoor", " Picnic"],
         },
         {
             id: 16,
             name: "Attend a Free Outdoor Concert",
             date: "2024-06-06",
             time: "18:00",
-            location: "Public Square",
+            location: "Esplande",
             description: "Listen to live music and soak up the atmosphere at a free outdoor concert.",
-            tags: ["Outdoor", " Free", " Live Music"]
+            tags: ["Outdoor", " Live Music"],
         },
         {
             id: 17,
@@ -153,16 +153,16 @@ document.addEventListener('DOMContentLoaded', function() {
             time: "Anytime",
             location: "Local Library",
             description: "Spend a cozy afternoon together browsing books and exploring a local library.",
-            tags: ["Indoor", " Free", " Library"]
+            tags: ["Indoor", " Library"],
         },
         {
             id: 18,
             name: "Take a Free Dance Class",
             date: "2024-06-08",
-            time: "Evening",
+            time: "19:00",
             location: "Community Center",
             description: "Learn some new moves and have fun dancing together at a free dance class.",
-            tags: ["Indoor", " Free", " Dance"]
+            tags: ["Indoor", " Dance"],
         },
         {
             id: 19,
@@ -171,7 +171,7 @@ document.addEventListener('DOMContentLoaded', function() {
             time: "Late Afternoon",
             location: "Various Locations",
             description: "Explore the city with your cameras and capture some memorable moments together on a photography walk.",
-            tags: ["Outdoor", " Free", " Photography"]
+            tags: ["Outdoor", " Free", " Photography"],
         },
         {
             id: 20,
@@ -180,7 +180,17 @@ document.addEventListener('DOMContentLoaded', function() {
             time: "All day",
             location: "Your Home",
             description: "Indulge in some self-care and relaxation with a DIY spa day at home.",
-            tags: ["Indoor", " Free", " Spa"]
+            tags: ["Indoor", " Spa", "Home"],
+        },
+
+        {
+            id: 21,
+            name: "Learn a New Recipe at Home",
+            date: "-",
+            time: "All day",
+            location: "Your Home",
+            description: "Nothing's more fun than learning something together and getting to reaping the rewards thereafter.",
+            tags: ["Indoor", "Food", "Home"],
         }
     ];
     

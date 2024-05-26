@@ -5,14 +5,13 @@
     box-sizing: border-box;
 }
 
-
 body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
     align-items: center;
     justify-content: center;
-    background-color: #ecc7c7 !important;
+    background-color: #ffffff;
 }
 
 .navbar {
@@ -44,13 +43,13 @@ body {
 
 /* Header Styles */
 .gradient-header {
-    top: 0; /* Align it to the top */
-    width: 100%; /* Make it span the full width of the viewport */
+    top: 0;
+    width: 100%;
     background-image: linear-gradient(to right, #D9AFD9 0%, pink, #97D9E1 100%);
     color: #fff;
     text-align: center;
-    z-index: 1000; /* Ensure it stays above other content */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Optional: add a shadow for better visibility */
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .header-content {
@@ -92,15 +91,14 @@ body {
     text-decoration: none;
     font-size: 1rem;
     font-weight: 600;
-    transition: color 0.3s ease; /* Smooth transition for color change */
+    transition: color 0.3s ease;
 }
 
 .header-content nav ul li a:hover {
-    color: #696969; /* Change color on hover */
+    color: #696969;
 }
 
-/* wheel */
-
+/* Wheel Styles */
 .wheel-container {
     margin-top: 50px;
     margin-bottom: 50px;
@@ -147,13 +145,13 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: #a28787;
+    background: #cbbed2;
     border-radius: 50%;
     overflow: hidden;
     box-shadow: 0 0 0 5px #fffcfc,
-    0 0 0 15px #fff
+    0 0 0 15px #fff,
     0 0 0 18px #111;
-    transition: transform 2.5s ease-in-out;
+    transition: transform 2s ease-in-out;
 }
 
 .wheel-container .wheel .number{
@@ -163,8 +161,7 @@ body {
     background: var(--clr);
     transform-origin: bottom right;
     transform: rotate(calc(36deg * var(--i)));
-    clip-path: polygon(0 0,48% 0,
-    100% 100%,0 48%);
+    clip-path: polygon(0 0,48% 0,100% 100%,0 48%);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -175,34 +172,34 @@ body {
 .wheel-container .wheel .number span{
     position: relative;
     transform: rotate(36deg);
-    font-size: 1em;
-    font-weight: 700;
+    font-size: 12px;
+    font-weight: 500;
     color: #fff;
 }
 
 .wheel-container .wheel .number span::after{
     position: absolute;
-    font-size: 0.75em;
+    font-size: 14px;
     font-weight: 500;
 }
 
-/* FOOTER */
 
+/* Footer */
 footer {
-    background-color: #ccc; /* Dark background color for better contrast */
+    background-color: #ccc;
     color: #ccc;
     text-align: center;
     font-size: 15px;
     position: relative;
     width: 100%;
-    padding: 10px 0; /* Reduced padding to decrease spacing */
-    margin: 0; /* Ensure no margin is added by default */
-    margin-top: auto; /* Pushes footer to the bottom */
+    padding: 10px 0;
+    margin: 0;
+    margin-top: auto;
 }
 
 footer p {
-    margin: 0; /* Ensure no additional margin is added to paragraphs */
-    padding: 0; /* Ensure no additional padding is added to paragraphs */
+    margin: 0;
+    padding: 0;
 }
 
 #disclaimer {
@@ -210,4 +207,3 @@ footer p {
     color: #fff;
     padding: 10px;
 }
-

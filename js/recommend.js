@@ -17,8 +17,8 @@ document.addEventListener('DOMContentLoaded', function() {
             'nature': 'Explore nature with a hike at MacRitchie Reservoir.',
             'food': 'Follow a YouTube cooking video and start a cook off at home!',
             'history': 'Have a walk along the Singapore River.',
-            'relax': 'Have a movie marathon at home.'
-            'sports': 'Have a badminton tournament at your neighbourhood community centre!'
+            'relax': 'Have a movie marathon at home.',
+            'sports': 'Have a badminton tournament at your neighbourhood community centre!',
         };
 
         let recommendation = 'Try visiting a new part of town or exploring a local market.';

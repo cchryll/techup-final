@@ -3,47 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weekend Do What</title>
-    <link rel="stylesheet" href="css/index.css">
-   <script src="js/index.js"></script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-WTZD4J48BS"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-WTZD4J48BS');
-</script>
-
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-
+    <title>Generate For Me</title>
+    <link rel="stylesheet" href="css/generate.css">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WTZD4J48BS"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-WTZD4J48BS');
+    </script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
+    <!-- Collapsible Navbar Section -->
+    <div class="collapse" id="navbarToggleExternalContent" data-bs-theme="dark">
+        <div class="bg-dark p-4 d-flex justify-content-between align-items-center">
+            <div>
+                <h5 class="text-body-emphasis h4">Weekend Go Where?</h5>
+                <span class="text-body-secondary">If you've been asked this question and have absolutely no idea as well, we got you covered!</span>
+            </div>
+            <div>
+                <ul class="list-unstyled">
+                    <li><a href="index.html" class="text-white" style="text-decoration: none;">Home</a></li>
+                    <li><a href="recommend.html" class="text-white" style="text-decoration: none;">Recommend For Me</a></li>
+                    <li><a href="generate.html" class="text-white" style="text-decoration: none;">Generate For Me</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+            <img src="images/logo.png" class="navbarlogo">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </nav>
 
-  <div class="collapse" id="navbarToggleExternalContent" data-bs-theme="dark">
-    <div class="bg-dark p-4 d-flex justify-content-between align-items-center">
-        <div>
-            <h5 class="text-body-emphasis h4">Weekend Go Where?</h5>
-            <span class="text-body-secondary">If you've been asked this question and have absolutely no idea as well, we got you covered!</span>
-        </div>
-        <div>
-            <ul class="list-unstyled">
-                <li><a href="index.html" class="text-white" style="text-decoration: none;">Home</a></li>
-                <li><a href="recommend.html" class="text-white" style="text-decoration: none;">Recommend</a></li>
-                <li><a href="generate.html" class="text-white" style="text-decoration: none;">Generate For Me</a></li>
-            </ul>
-        </div>
-    </div>
-</div>
-<nav class="navbar navbar-dark bg-dark">
-    <div class="container-fluid">
-        <img src="images/logo.png" class="navbarlogo">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-    </div>
-</nav>
-      
+    <!-- Existing Content -->
     <header class="gradient-header">
         <div class="header-content">
             <nav>
@@ -51,53 +49,65 @@
                     <li><a href="index.html">Home</a></li>
                     <li><a href="recommend.html">Recommend</a></li>
                     <li><a href="generate.html">Generate For Me</a></li>
-    
                 </ul>
-                <img src="images/index.png" class="indexlogo">
-        <p>If your partner is asking you this question and have absolutely no clue, ind something up your alley from this repository of free events and activities in Singapore.</p>
+            </nav>
+            <h1>Let Us Generate For You!</h1>
+            <p>Don't know what to do this weekend but need to plan a date? We got you covered.</p>
         </div>
     </header>
-    <main>
 
-        <section class="hero-section">
-            <h2>Discover Free Activities for Your Next Date!</h2>
-            <p>Explore a variety of free events and activities perfect for couples.</p>
-        </section>
+    <div class="wheel-container">
+        <div class="spinBtn">Spin</div>
+        <div class="wheel">
+            <div class="number" style="--i:1;--clr:#c0afda;">
+                <span>Go for a picnic</span></div>
+            <div class="number" style="--i:2;--clr:#e5daf5;">
+                <span>Do a puzzle together</span></div>
+            <div class="number" style="--i:3;--clr:#c0afda;">
+                <span>Netflix marathon</span></div>
+            <div class="number" style="--i:4;--clr:#e5daf5;">
+                <span>Cycle at a park</span></div>
+            <div class="number" style="--i:5;--clr:#c0afda;">
+                <span>Volunteer together</span></div>
+            <div class="number" style="--i:6;--clr:#e5daf5;">
+                <span>Visit the National Museum</span></div>
+            <div class="number" style="--i:7;--clr:#c0afda;">
+                <span>Go to the beach</span></div>
+            <div class="number" style="--i:8;--clr:#e5daf5;">
+                <span>Board games night</span></div>
+            <div class="number" style="--i:9;--clr:#c0afda;">
+                <span>Take up painting</span></div>
+            <div class="number" style="--i:10;--clr:#e5daf5;">
+                <span>Hike at Bukit Timah Hill</span></div>
+        </div>
+    </div>
 
-
-        <section id="date-ideas">
-            <div id="search-bar-container">
-                <input type="text" id="search-bar" placeholder="Search for events...">
-                <button id="search-button">Search</button>
-            </div>
-            <ul id="event-list">
-                <!-- Event cards with tags will be inserted here by JavaScript -->
-            </ul>
-        </section>
-
-    </main>
-
-    <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+    <!-- Decision Display -->
+    <div id="decision" class="decision"></div>
 
     <footer>
         <div class="container">
             <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-              <p class="col-md-4 mb-0 text-body-secondary">Weekend Go Where © 2024</p>
-          
-              <a href="/" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-                <svg class="bi me-2" width="40" height="22"><use xlink:href="#bootstrap"></use></svg>
-              </a>
-          
-              <ul class="nav col-md-4 justify-content-end">
-                <li class="nav-item"><a href="index.html" class="nav-link px-2 text-body-secondary">Home</a></li>
-                <li class="nav-item"><a href="recommend.html" class="nav-link px-2 text-body-secondary">Recommend</a></li>
-                <li class="nav-item"><a href="generate.html" class="nav-link px-2 text-body-secondary">Generate</a></li>
-              </ul>
-              <p id="disclaimer">This website is created for learning purposes only. The information provided here should not be considered professional advice. Please note that we make no guarantees regarding the accuracy, completeness, or reliability of the contents of this website. Any actions you take based on the contents of this website are at your own risk. We are not liable for any losses or damages incurred from the use of this website.</p>
-          </div>
+                <p class="col-md-4 mb-0 text-body-secondary">Weekend Go Where © 2024</p>
+                <a href="/" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-auto me-md-auto link-body-emphasis text-decoration-none">
+                    <svg class="bi me-2" width="40" height="22"><use xlink:href="#bootstrap"></use></svg>
+                </a>
+                <ul class="nav col-md-4 justify-content-end">
+                    <li class="nav-item"><a href="index.html" class="nav-link px-2 text-body-secondary">Home</a></li>
+                    <li class="nav-item"><a href="recommend.html" class="nav-link px-2 text-body-secondary">Recommend For Me</a></li>
+                    <li class="nav-item"><a href="generate.html" class="nav-link px-2 text-body-secondary">Generate</a></li>
+                </ul>
+                <p id="disclaimer">This website is created for learning purposes only. The information provided here should not be considered professional advice. Please note that we make no guarantees regarding the accuracy, completeness, or reliability of the contents of this website. Any actions you take based on the contents of this website are at your own risk. We are not liable for any losses or damages incurred from the use of this website.</p>
+            </footer>
+        </div>
+    </footer>
 
-   </footer>
-    <script src="script.js"></script>
+    <!-- Load CDN for Chart JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <!-- Load CDN for Chart JS Plugin to display text over chart -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.1.0/chartjs-plugin-datalabels.min.js"></script>
+    <!-- Include the script for the wheel functionality after loading Chart.js libraries -->
+    <script src="js/generate.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
