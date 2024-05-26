@@ -1,7 +1,9 @@
+// Wait until the entire HTML document is loaded and ready to be interacted with.
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('recommendationForm');
     const resultSection = document.getElementById('recommendation-result');
 
+        // Add an event listener to the form to handle form submission.
     form.addEventListener('submit', function(event) {
         event.preventDefault(); // Prevent form submission
 
@@ -20,8 +22,9 @@ document.addEventListener('DOMContentLoaded', function() {
             'relax': 'Have a movie marathon at home.',
             'sports': 'Have a badminton tournament at your neighbourhood community centre!',
         };
-
-        let recommendation = 'Try visiting a new part of town or exploring a local market.';
+         // Default recommendation if no interest matches.
+        let recommendation = 'Try visiting a new part of Singapore or exploring a local new hawker market.';
+           // Loop through the recommendations to find a match based on interests.
         for (let key in recommendations) {
             if (interests.includes(key)) {
                 recommendation = recommendations[key];

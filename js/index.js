@@ -195,9 +195,11 @@ document.addEventListener('DOMContentLoaded', function() {
     ];
     
 
+      // Get the elements for displaying events and the search bar from the HTML.
     const eventList = document.getElementById('event-list');
     const searchBar = document.getElementById('search-bar');
 
+     // Function to display events on the webpage.
     function displayEvents(eventArray) {
         eventList.innerHTML = '';
         eventArray.forEach(event => {
@@ -219,7 +221,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
 
-
+// Add event listener to the search bar to filter events based on the search term.
     searchBar.addEventListener('input', function() {
         const searchTerm = searchBar.value.toLowerCase();
         const filteredEvents = events.filter(event => event.name.toLowerCase().includes(searchTerm));
@@ -229,6 +231,7 @@ document.addEventListener('DOMContentLoaded', function() {
     displayEvents(events);
 });
 
+// Code for the scroll-to-top button.
 let mybutton = document.getElementById("myBtn");
 
 // When the user scrolls down 20px from the top of the document, show the button
@@ -241,7 +244,7 @@ function scrollFunction() {
     mybutton.style.display = "none";
   }
 }
-
+// Scroll the document to the top when the button is clicked.
 function topFunction() {
   document.body.scrollTop = 0; // For Safari
   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
