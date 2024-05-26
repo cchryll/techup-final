@@ -12,12 +12,13 @@ document.addEventListener('DOMContentLoaded', function() {
         // Recommendations based on interests
         const recommendations = {
             'outdoor': 'Go for a scenic bike ride along the coast this weekend!',
-            'art': 'Visit the downtown art gallery open house.',
-            'music': 'Enjoy a free concert in the park.',
+            'art': 'Visit the newest exhibition at National Gallery!',
+            'music': 'Enjoy a free concert at Botanics Garden.',
             'nature': 'Explore nature with a hike at MacRitchie Reservoir.',
-            'food': 'Attend a cooking class together.',
-            'history': 'Visit the national museum for a free tour.',
+            'food': 'Follow a YouTube cooking video and start a cook off at home!',
+            'history': 'Have a walk along the Singapore River.',
             'relax': 'Have a movie marathon at home.'
+            'sports': 'Have a badminton tournament at your neighbourhood community centre!'
         };
 
         let recommendation = 'Try visiting a new part of town or exploring a local market.';
