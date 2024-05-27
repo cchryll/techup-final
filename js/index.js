@@ -222,7 +222,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
 
-// Add event listener to the search bar to filter events based on the search term.
+// Add event listener to the search bar to  listen for input events and filter events based on the search term.
     searchBar.addEventListener('input', function() {
         const searchTerm = searchBar.value.toLowerCase();
         // Filter the events array to only include events whose names include the search term.

@@ -169,8 +169,7 @@ main {
     padding: 3px 6px; /* Increase padding for larger tags */
     margin-right: 8px; /* Increase margin for more space between tags */
     background-color: #f0f0f0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 5px;
     font-size: 14px; /* Adjust font size for larger text */
 }
 
