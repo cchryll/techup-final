@@ -202,6 +202,7 @@ document.addEventListener('DOMContentLoaded', function() {
      // Function to display events on the webpage.
     function displayEvents(eventArray) {
         eventList.innerHTML = '';
+            // Loop through each event in the provided array.
         eventArray.forEach(event => {
             const eventCard = document.createElement('div');
             eventCard.classList.add('event-card');
@@ -224,7 +225,9 @@ document.addEventListener('DOMContentLoaded', function() {
 // Add event listener to the search bar to filter events based on the search term.
     searchBar.addEventListener('input', function() {
         const searchTerm = searchBar.value.toLowerCase();
+        // Filter the events array to only include events whose names include the search term.
         const filteredEvents = events.filter(event => event.name.toLowerCase().includes(searchTerm));
+        // Display the filtered events.
         displayEvents(filteredEvents);
     });
 
