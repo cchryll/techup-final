@@ -174,7 +174,7 @@ body {
     transform: rotate(36deg);
     font-size: 12px;
     font-weight: 500;
-    color: #fff;
+    color: black;
 }
 
 .wheel-container .wheel .number span::after{
